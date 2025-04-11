@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Johnny RAMANANJATOVO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animation personnalisée */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Effet de survol personnalisé pour les cartes de projet */
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Style personnalisé pour la barre de navigation */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3B82F6; /* Bleu */
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Animation pour le bouton de contact */
+        .contact-btn {
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+        }
+        /* Utilisation de la police Inter */
+        body {
+             font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-blue-500">J. RAMANANJATOVO</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#accueil" class="nav-link text-gray-700 hover:text-blue-500">Accueil</a>
+                    <a href="#projets" class="nav-link text-gray-700 hover:text-blue-500">Projets</a>
+                    <a href="#competences" class="nav-link text-gray-700 hover:text-blue-500">Compétences</a>
+                    <a href="#a-propos" class="nav-link text-gray-700 hover:text-blue-500">À propos</a>
+                    <a href="#contact" class="contact-btn bg-blue-500 text-white px-4 py-2 rounded-md">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#accueil" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Accueil</a>
+                <a href="#projets" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Projets</a>
+                <a href="#competences" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Compétences</a>
+                <a href="#a-propos" class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md">À propos</a>
+                <a href="#contact" class="block px-3 py-2 bg-blue-500 text-white rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="accueil" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fadeIn">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Bonjour, je suis <span class="text-blue-500">Johnny RAMANANJATOVO</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-600 mb-6">Développeur SAP ABAP / Ingénieur Apprenti</h2>
+                    <p class="text-gray-600 mb-8 text-lg">Actuellement en deuxième année d'ingénierie informatique à l'ESIEE Paris et en apprentissage chez Worldline. Passionné par la technologie blockchain, les cryptomonnaies et l'IA.</p>
+                    <div class="flex space-x-4">
+                        <a href="#projets" class="contact-btn bg-blue-500 text-white px-6 py-3 rounded-md">Voir mes projets</a>
+                        <a href="#contact" class="contact-btn border border-blue-500 text-blue-500 px-6 py-3 rounded-md">Me contacter</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center animate-fadeIn" style="animation-delay: 0.3s;">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-blue-500 rounded-full opacity-10 absolute -top-6 -left-6"></div>
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-indigo-500 rounded-full opacity-10 absolute -bottom-6 -right-6"></div>
+                        <img src="PIC/me.png"
+                             alt="Photo de profil de Johnny RAMANANJATOVO"
+                             onerror="this.onerror=null; this.src='https://placehold.co/320x320/EBF4FF/7F9CF5?text=Profil';"
+                             class="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white shadow-xl">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Mes Projets Récents</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Quelques exemples de projets sur lesquels j'ai travaillé, illustrant mes compétences techniques.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md animate-fadeIn" style="animation-delay: 0.1s;">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-indigo-500 flex items-center justify-center">
+                        <i class="fas fa-cogs text-white text-6xl"></i> </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Développement SAP (Worldline)</h3>
+                        <p class="text-gray-600 mb-4">Contribution au développement et à la maintenance d'applications dans l'environnement SAP.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">ABAP</span>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Fiori</span>
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">HTML</span>
+                        </div>
+                        <a href="#" class="text-blue-500 font-medium hover:text-blue-700">Plus de détails →</a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md animate-fadeIn" style="animation-delay: 0.2s;">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-6xl"></i> </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Développement Web (Pôle Cyber)</h3>
+                        <p class="text-gray-600 mb-4">Participation au développement web dans le cadre d'un projet lié à la cybersécurité.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Web</span>
+                            <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Sécurité</span>
+                        </div>
+                         <a href="#" class="text-blue-500 font-medium hover:text-blue-700">Plus de détails →</a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md animate-fadeIn" style="animation-delay: 0.3s;">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-teal-500 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-6xl"></i> </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Application Campus (St-Aspais)</h3>
+                        <p class="text-gray-600 mb-4">Création d'une application pour le campus, incluant la gestion de comptes réseaux.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">C#</span>
+                            <span class="bg-teal-100 text-teal-800 text-xs px-3 py-1 rounded-full">Application Desktop</span>
+                        </div>
+                         <a href="#" class="text-blue-500 font-medium hover:text-blue-700">Plus de détails →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 animate-fadeIn" style="animation-delay: 0.4s;">
+                 <a href="https://github.com/Whitemes" target="_blank" rel="noopener noreferrer" class="inline-block contact-btn bg-gray-800 text-white px-6 py-3 rounded-md hover:bg-gray-700">
+                    Voir mon GitHub <i class="fab fa-github ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="competences" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Mes Compétences</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Mes principales compétences techniques acquises à travers ma formation et mes expériences.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 animate-fadeIn" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Développement Backend & Langages</h3>
+                    <p class="text-gray-600 mb-4">Maîtrise de langages orientés objet et de programmation système.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Java</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">C#</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Programmation Système</span>
+                         <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Maven</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 animate-fadeIn" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-indigo-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Développement SAP & Web</h3>
+                    <p class="text-gray-600 mb-4">Compétences en développement pour l'écosystème SAP et technologies web.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">ABAP</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Fiori</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">HTML</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 animate-fadeIn" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                         <i class="fas fa-lightbulb text-purple-500 text-2xl"></i> </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Intérêts & Langues</h3>
+                    <p class="text-gray-600 mb-4">Passion pour les nouvelles technologies et compétences linguistiques.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Blockchain</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Cryptomonnaies</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">IA</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Anglais (Pro)</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Malgache (Natif)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-white p-8 rounded-lg shadow-sm animate-fadeIn" style="animation-delay: 0.4s;">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Maîtrise des Technologies (Indicatif)</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">Java</span>
+                            <span class="text-gray-500">85%</span> </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">ABAP / Fiori</span>
+                            <span class="text-gray-500">75%</span> </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-indigo-500 h-2.5 rounded-full" style="width: 75%"></div> </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">HTML</span>
+                             <span class="text-gray-500">70%</span> </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-purple-500 h-2.5 rounded-full" style="width: 70%"></div> </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">C#</span>
+                            <span class="text-gray-500">65%</span> </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 65%"></div> </div>
+                    </div>
+                     <p class="text-sm text-gray-500 mt-4">Note: Les pourcentages sont indicatifs et basés sur l'expérience et les certifications mentionnées.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="a-propos" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fadeIn">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">À propos de moi</h2>
+                    <p class="text-gray-600 mb-6">Ingénieur apprenti en informatique à l'ESIEE Paris, actuellement en poste chez Worldline. Je suis passionné par l'innovation technologique, notamment la blockchain, les cryptomonnaies et l'intelligence artificielle. Je cherche constamment à apprendre et à appliquer mes compétences dans des environnements stimulants.</p>
+                    <div class="space-y-4 mb-8">
+                         <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-graduation-cap text-blue-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700">Étudiant Ingénieur à ESIEE Paris</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-briefcase text-blue-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700">Apprenti Développeur SAP chez Worldline</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-lightbulb text-blue-500"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-700">Intérêt marqué pour la Blockchain, Crypto & IA</p>
+                            </div>
+                        </div>
+                    </div>
+                     <a href="Profile.pdf" download="CV_Johnny_RAMANANJATOVO.pdf" class="contact-btn inline-flex items-center bg-blue-500 text-white px-6 py-3 rounded-md">
+                        <i class="fas fa-download mr-2"></i> Télécharger mon CV
+                    </a>
+                </div>
+                <div class="md:w-1/2 md:pl-12 animate-fadeIn" style="animation-delay: 0.3s;">
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Mon Parcours Récent</h3>
+                        <div class="space-y-8">
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-briefcase text-blue-500"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Développeur ABAP/Fiori/HTML</h4>
+                                    <p class="text-sm text-gray-500 mb-1">Worldline • Sept. 2023 - Présent</p>
+                                    <p class="text-gray-600 text-sm">Apprentissage dans un environnement Fintech.</p>
+                                </div>
+                            </div>
+                             <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center"> <i class="fas fa-graduation-cap text-green-500"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Diplôme d'ingénieur, Informatique</h4>
+                                    <p class="text-sm text-gray-500 mb-1">ESIEE PARIS • 2023 - 2026 (en cours)</p>
+                                     <p class="text-gray-600 text-sm">Formation d'ingénieur généraliste avec spécialisation informatique.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-briefcase text-indigo-500"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Apprenti développeur</h4>
+                                    <p class="text-sm text-gray-500 mb-1">Institution Saint-Aspais • 2022 - 2023</p>
+                                     <p class="text-gray-600 text-sm">Première expérience en développement en apprentissage.</p>
+                                </div>
+                            </div>
+                             <div class="flex">
+                                <div class="flex-shrink-0 mr-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-green-500"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Licence, Informatique</h4>
+                                    <p class="text-sm text-gray-500 mb-1">Conservatoire National des Arts et Métiers • 2022 - 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Contactez-moi</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">N'hésitez pas à me contacter pour discuter d'opportunités, de projets ou simplement pour échanger sur nos passions communes pour la technologie.</p>
+            </div>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8 animate-fadeIn">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Informations de contact</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-blue-500"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-500">Email</h4>
+                                    <p class="text-gray-700"><a href="mailto:ramananmichel@gmail.com" class="hover:text-blue-500">ramananmichel@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone-alt text-blue-500"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-500">Téléphone</h4>
+                                    <p class="text-gray-700">Disponible sur demande</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-blue-500"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-sm font-medium text-gray-500">Localisation</h4>
+                                    <p class="text-gray-700">Paris et périphérie, France</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-6">Réseaux professionnels</h3>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/shenron" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-300" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/Whitemes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white hover:bg-gray-600 transition-colors duration-300" aria-label="GitHub"> <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 animate-fadeIn" style="animation-delay: 0.3s;">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-6">Envoyez-moi un message</h3>
+                        <form action="#" method="POST">
+                            <div class="mb-6">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nom complet</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Votre nom" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Adresse email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="votre@email.com" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Sujet</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Objet de votre message">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Décrivez votre projet ou votre demande" required></textarea>
+                            </div>
+                            <button type="submit" class="contact-btn w-full bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">
+                                Envoyer le message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl font-bold">J. RAMANANJATOVO</a>
+                    <p class="text-gray-400 mt-2">© 2025 Johnny RAMANANJATOVO. Tous droits réservés.</p>
+                </div>
+                <div class="flex space-x-6">
+                     <a href="https://www.linkedin.com/in/shenron" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                     <a href="https://github.com/Whitemes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a'); // Liens du menu mobile
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fermer le menu mobile lorsqu'un lien est cliqué
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Animation au défilement et Smooth scrolling
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.animate-fadeIn');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                    } else {
+                         // entry.target.classList.remove('opacity-100', 'translate-y-0');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Smooth scrolling pour tous les liens d'ancre
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || !href.startsWith('#')) return;
+                    e.preventDefault();
+                    const targetId = href;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navHeight - 20;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    </body>
+</html>
