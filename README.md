@@ -59,4 +59,4 @@ Aucune installation de dépendances n'est nécessaire.
 
 ## Licence
 
-Ce projet est sous licence [Nom de la Licence]. Voir le fichier `LICENSE` pour plus de détails.
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
